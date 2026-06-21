@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Mapa das ias baratas" },
+      { name: "description", content: "Project Revival is a web application that replicates existing website functionality." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Mapa das ias baratas" },
+      { property: "og:description", content: "Project Revival is a web application that replicates existing website functionality." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Mapa das ias baratas" },
+      { name: "twitter:description", content: "Project Revival is a web application that replicates existing website functionality." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6fafc169-2236-478c-becb-20d9bf5eae0a/id-preview-60fc2953--7965f682-55cf-4a22-9c40-b3d1ef75e5a4.lovable.app-1782054896029.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6fafc169-2236-478c-becb-20d9bf5eae0a/id-preview-60fc2953--7965f682-55cf-4a22-9c40-b3d1ef75e5a4.lovable.app-1782054896029.png" },
     ],
     links: [
       {
