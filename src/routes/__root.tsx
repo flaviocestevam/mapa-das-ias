@@ -109,17 +109,6 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "yyefq0uiu6");
-            `,
-          }}
-        />
       </head>
       <body>
         {children}
@@ -131,6 +120,23 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    if (document.querySelector('script[data-clarity-id="yyefq0uiu6"]')) return;
+
+    const clarity = ((window as Window & { clarity?: (...args: unknown[]) => void }).clarity =
+      (window as Window & { clarity?: (...args: unknown[]) => void }).clarity ||
+      function (...args: unknown[]) {
+        const clarityWithQueue = clarity as typeof clarity & { q?: unknown[][] };
+        (clarityWithQueue.q = clarityWithQueue.q || []).push(args);
+      });
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.clarity.ms/tag/yyefq0uiu6";
+    script.dataset.clarityId = "yyefq0uiu6";
+    document.head.appendChild(script);
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
