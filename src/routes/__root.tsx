@@ -121,23 +121,6 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
-  useEffect(() => {
-    if (document.querySelector('script[data-clarity-id="yyefq0uiu6"]')) return;
-
-    const clarity = ((window as Window & { clarity?: (...args: unknown[]) => void }).clarity =
-      (window as Window & { clarity?: (...args: unknown[]) => void }).clarity ||
-      function (...args: unknown[]) {
-        const clarityWithQueue = clarity as typeof clarity & { q?: unknown[][] };
-        (clarityWithQueue.q = clarityWithQueue.q || []).push(args);
-      });
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.clarity.ms/tag/yyefq0uiu6";
-    script.dataset.clarityId = "yyefq0uiu6";
-    document.head.appendChild(script);
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
